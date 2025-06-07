@@ -81,7 +81,11 @@ func (project Project) AddParam() interface{} {
 	if project.Color != "" {
 		param["color"] = project.Color
 	}
-	//TODO: ParentID
+
+	if project.ParentID != nil {
+		param["parent_id"] = *project.ParentID
+	}
+
 	if project.ItemOrder != 0 {
 		param["child_order"] = project.ItemOrder
 	}

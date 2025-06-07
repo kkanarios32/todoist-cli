@@ -67,6 +67,16 @@ func main() {
 		Aliases: []string{"P"},
 		Usage:   "project id",
 	}
+	parentIDFlag := cli.IntFlag{
+		Name:    "parent-id",
+		Aliases: []string{"p"},
+		Usage:   "parent id",
+	}
+	parentNameFlag := cli.StringFlag{
+		Name:    "parent-name",
+		Aliases: []string{"P"},
+		Usage:   "parent name",
+	}
 	projectNameFlag := cli.StringFlag{
 		Name:    "project-name",
 		Aliases: []string{"N"},
@@ -326,6 +336,8 @@ func main() {
 					Name:  "item-order",
 					Usage: "Order index",
 				},
+				&parentIDFlag,
+				&parentNameFlag,
 			},
 			ArgsUsage: "<Project name>",
 		},
