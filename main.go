@@ -69,7 +69,7 @@ func main() {
 	}
 	parentIDFlag := cli.IntFlag{
 		Name:    "parent-id",
-		Aliases: []string{"p"},
+		Aliases: []string{"I"},
 		Usage:   "parent id",
 	}
 	parentNameFlag := cli.StringFlag{
@@ -275,6 +275,7 @@ func main() {
 				&priorityFlag,
 				&labelNamesFlag,
 				&projectIDFlag,
+				&parentIDFlag,
 				&projectNameFlag,
 				&dateFlag,
 				&reminderFlg,

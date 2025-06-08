@@ -36,7 +36,15 @@ func Add(c *cli.Context) error {
 		}
 		item.ProjectID = projectId
 	} else {
-		item.ProjectID = c.String("project-id")
+		parentID := c.String("parent-id")
+		if parentID != "0" {
+			item.ParentID = &parentID
+			parentItem := client.Store.ItemMap[parentID]
+			item.ProjectID = parentItem.ProjectID
+			fmt.Print(item.ProjectID)
+		} else {
+			item.ProjectID = c.String("project-id")
+		}
 	}
 
 	item.LabelNames = func(str string) []string {

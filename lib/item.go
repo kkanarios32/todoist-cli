@@ -166,11 +166,17 @@ func (item Item) AddParam() interface{} {
 	}
 	if item.ProjectID != "" {
 		param["project_id"] = item.ProjectID
+		// param["project_id"] = "2343406894"
 	}
 	if item.Due != nil {
 		param["due"] = item.Due
 	}
 	param["auto_reminder"] = item.AutoReminder
+
+	if item.ParentID != nil {
+		param["parent_id"] = *item.ParentID
+		// param["parent_id"] = "9238135170"
+	}
 
 	return param
 }
@@ -186,6 +192,7 @@ func (item Item) UpdateParam() interface{} {
 	if item.DateString != "" {
 		param["date_string"] = item.DateString
 	}
+
 	// TODO: more cool
 	if item.DateString == "null" {
 		param["date_string"] = ""
