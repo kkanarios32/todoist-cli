@@ -26,7 +26,9 @@ func AddProject(c *cli.Context) error {
 		project.ParentID = &parentID
 	} else {
 		parentID := c.String("parent-id")
-		project.ParentID = &parentID
+		if parentID != "0" {
+			project.ParentID = &parentID
+		}
 	}
 
 	if c.String("color") != "0" {
