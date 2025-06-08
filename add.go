@@ -41,7 +41,6 @@ func Add(c *cli.Context) error {
 			item.ParentID = &parentID
 			parentItem := client.Store.ItemMap[parentID]
 			item.ProjectID = parentItem.ProjectID
-			fmt.Print(item.ProjectID)
 		} else {
 			item.ProjectID = c.String("project-id")
 		}
